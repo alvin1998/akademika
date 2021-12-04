@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.AdaInt.akademika.activity.MainActivity
-import com.AdaInt.akademika.activity.MainActivityFragment
+import com.AdaInt.akademika.activity.dosen.MainActivityFragment
+import com.AdaInt.akademika.activity.login.ActivityLogin
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this@SplashScreenActivity, MainActivityFragment::class.java))
+            startActivity(Intent(this@SplashScreenActivity, ActivityLogin::class.java))
             finish()
         }, 3000)
     }

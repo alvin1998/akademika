@@ -34,4 +34,13 @@ inline fun <reified T> inputData(okHttpClient: OkHttpClient): T {
         .build()
     return retrofit.create(T::class.java)
 }
+inline fun <reified T> cekLogin(okHttpClient: OkHttpClient): T {
+    val gson = GsonBuilder().create()
+    val retrofit = Retrofit.Builder()
+        .baseUrl("http://192.168.163.187:8000/")
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+    return retrofit.create(T::class.java)
+}
 
