@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.dosen.KelasFragmentDs">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_listMyFreinds"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSimpan"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="16dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_my_icon"
+        android:contentDescription="@string/submit"
+        android:layout_margin="16dp" />
 
-</FrameLayout>
+</LinearLayout>
