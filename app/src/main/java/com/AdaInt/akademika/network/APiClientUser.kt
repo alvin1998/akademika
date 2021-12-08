@@ -1,9 +1,7 @@
 package com.AdaInt.akademika.network
 
 import com.AdaInt.akademika.adapter.UserModelItem
-import com.AdaInt.akademika.model.CekLoginRespon
-import com.AdaInt.akademika.model.RequestCekLogin
-import com.AdaInt.akademika.model.RequestUser
+import com.AdaInt.akademika.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -24,4 +22,18 @@ interface CreateData {
 interface CekLoginD {
     @POST("api/cekLogin")
     fun cekData(@Body req: RequestCekLogin): Call<CekLoginRespon>
+}
+
+interface GetKelasDosen {
+    @POST("api/kelas/dosen")
+    fun getKelasDs(@Body req: RequestGetKelasDosen): Call<List<GetKelasDosenItem>>
+
+    @POST("api/kelas/dosen/tambah")
+    fun addKelasDs(@Body req: RequestTambahKelasDosen): Call<List<GetKelasDosenItem>>
+
+    @PUT("api/kelas/dosen/edit/{id}")
+    fun editKelas(@Path("id") id: Int, @Body req: editKelasDosen): Call<List<GetKelasDosenItem>>
+
+    @DELETE("api/kelas/dosen/hapus/{id}")
+    fun deletedKelas(@Path("id") id: Int): Call<List<GetKelasDosenItem>>
 }

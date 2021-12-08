@@ -74,7 +74,7 @@ class Register : AppCompatActivity() {
                         Log.i("coba",t.localizedMessage.toString())
                         Snackbar.make(
                             btnDaftar,
-                            t.localizedMessage.toString(),
+                            "username sudah ada",
                             Snackbar.LENGTH_SHORT
                         ).show()
                     }
