@@ -37,3 +37,37 @@ interface GetKelasDosen {
     @DELETE("api/kelas/dosen/hapus/{id}")
     fun deletedKelas(@Path("id") id: Int): Call<List<GetKelasDosenItem>>
 }
+interface MateriDs {
+    @POST("api/kelas/dosen/materi")
+    fun GetMateri(@Body req: GetMateriDsId): Call<List<GetMateriDosenItem>>
+
+    @POST("api/kelas/dosen/materi/tambah")
+    fun SendMateri(@Body req: SendMateriApi): Call<List<GetMateriDosenItem>>
+
+    @DELETE("api/kelas/dosen/materi/hapus/{id}/{id2}/{id3}")
+    fun deletedMateri(@Path("id") id: Int,@Path("id2") id2: Int,@Path("id3") id3: Int): Call<List<GetMateriDosenItem>>
+
+    @PUT("api/kelas/dosen/materi/editMateri/{id}")
+    fun editKelas(@Path("id") id: Int, @Body req: SendMateriDosenEdit): Call<List<GetMateriDosenItem>>
+
+}
+interface MBiodata {
+
+    @POST("api/biodata/tambah")
+    fun SendBiodata(@Body req: SendBiodataItem): Call<List<ResponseModelBiodataItem>>
+
+}
+interface GetKelasMhsMo {
+    @POST("api/mahasiswa/kelas")
+    fun GetKelasM(@Body req: SendIdMhs): Call<List<GetKelasMhsItem>>
+
+    @POST("api/mahasiswa/kelas/tambah")
+    fun SendKelasM(@Body req: SendIdDataKelas): Call<List<GetKelasMhsItem>>
+
+    @DELETE("api/mahasiswa/kelas/hapus/{id}/{id2}")
+    fun hpsKls(@Path("id") id: Int,@Path("id2") id2: Int): Call<List<GetKelasMhsItem>>
+
+    @POST("api/mahasiswa/kelas/materi")
+    fun GetMateri(@Body req: GetKelasMateri): Call<List<GetKelasMateriMhsItem>>
+
+}

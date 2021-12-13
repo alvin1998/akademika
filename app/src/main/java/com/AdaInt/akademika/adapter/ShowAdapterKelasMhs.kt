@@ -2,62 +2,58 @@ package com.AdaInt.akademika.adapter
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.AdaInt.akademika.R
-import com.AdaInt.akademika.activity.dosen.TambahTugas
-import com.AdaInt.akademika.activity.login.Register
-import com.AdaInt.akademika.model.GetKelasDosenItem
+import com.AdaInt.akademika.model.GetKelasMhsItem
+import com.AdaInt.akademika.model.GetMateriDosenItem
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.item_kelas_dosen.*
+import kotlinx.android.synthetic.main.item_kelas_mhs.*
+import kotlinx.android.synthetic.main.item_materi_dosen.*
 
-
-class ShowKelasDosenAdapter(private val context: Context, private val items:
-List<GetKelasDosenItem> ,private val listener: (GetKelasDosenItem)-> Unit) :
-    RecyclerView.Adapter<ShowKelasDosenAdapter.ViewHolder>() {
-
-
+class ShowAdapterKelasMhs(private val context: Context, private val items:
+List<GetKelasMhsItem>, private val listener: (GetKelasMhsItem)-> Unit) :
+    RecyclerView.Adapter<ShowAdapterKelasMhs.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(context, LayoutInflater.from(context).inflate(
-            R.layout.item_kelas_dosen,
+            R.layout.item_kelas_mhs,
             parent, false))
     override fun getItemCount(): Int {
         return items.size
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(items.get(position) ,listener)
+        holder.bindItem(items.get(position), listener)
     }
     class ViewHolder(val context: Context, override val containerView : View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
-        fun bindItem(item: GetKelasDosenItem, listener: (GetKelasDosenItem) -> Unit) {
-            txtkelasDosen.text = item.kelas
-            txtItemKelas.text = "ID Kelas : " + item.id.toString()
+        fun bindItem(item: GetKelasMhsItem, listener: (GetKelasMhsItem) -> Unit) {
 
-            mMenus.setOnClickListener {
+            txtkelasMhs.text = item.kelas.toString()
+            txtNamaDosenMhs.text = "Nama Dosen : " + item.nama
+
+            mMenusMhs.setOnClickListener {
                 popupMenus(it,item,listener)
             }
 //            containerView.setOnClickListener { listener(item) }
         }
 
-        private fun popupMenus(v: View, item: GetKelasDosenItem, listener: (GetKelasDosenItem) -> Unit) {
+
+        private fun popupMenus(v: View, item: GetKelasMhsItem, listener: (GetKelasMhsItem) -> Unit) {
             val popupMenus = PopupMenu(context,v)
-            popupMenus.inflate(R.menu.show_menu)
+            popupMenus.inflate(R.menu.show_menu_kelas_mhs)
             popupMenus.setOnMenuItemClickListener {
                 when(it.itemId){
-                    R.id.ediText->{
+                    R.id.LihatTextMhs->{
 
-                        item.kondisi = "edit"
+                        item.kondisi = "lihat"
                         listener(item)
                         true
                     }
-                    R.id.delete->{
+                    R.id.deleteMhs->{
                         /**set delete*/
                         AlertDialog.Builder(context)
                             .setTitle("Hapus")
@@ -77,11 +73,6 @@ List<GetKelasDosenItem> ,private val listener: (GetKelasDosenItem)-> Unit) :
                             .show()
 
 
-                        true
-                    }
-                    R.id.tugastxt->{
-                        item.kondisi = "pindah"
-                        listener(item)
                         true
                     }else-> true
                 }

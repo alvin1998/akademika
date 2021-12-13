@@ -21,8 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/txtkelasDosen"
-                android:text="Title"
+                android:id="@+id/txtkelasMhs"
+                android:text="Kelas"
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 android:textStyle="bold"
@@ -30,8 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/txtItemKelas"
-                android:text="Id_kelas"
+                android:id="@+id/txtNamaDosenMhs"
+                android:text="Nama Dosen"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
         <ImageView
-            android:id="@+id/mMenus"
+            android:id="@+id/mMenusMhs"
             android:src="@drawable/ic_baseline_more"
             android:layout_gravity="center"
             android:layout_margin="10dp"

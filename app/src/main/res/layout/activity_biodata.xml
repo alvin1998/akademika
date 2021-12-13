@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.login.Biodata">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROFILE"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:textSize="24sp"
+        android:layout_marginBottom="5sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/txtNamaBiodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Nama"
+        android:inputType="text"
+        android:layout_marginBottom="2sp"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"/>
+    <EditText
+        android:id="@+id/txtNomerTlpBiodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Nomor Telepon"
+        android:inputType="number"
+        android:layout_marginBottom="2sp"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"/>
+    <EditText
+        android:id="@+id/txtAlamatBiodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Alamat"
+        android:inputType="text"
+        android:layout_marginBottom="2sp"
+        android:layout_marginLeft="2sp"
+        android:layout_marginRight="2sp"/>
+    <Button
+        android:id="@+id/btnAdBiodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah"/>
+
+
+
+</LinearLayout>

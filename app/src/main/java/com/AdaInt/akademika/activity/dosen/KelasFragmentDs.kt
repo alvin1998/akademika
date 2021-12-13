@@ -9,24 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.AdaInt.akademika.R
 import com.AdaInt.akademika.activity.login.ActivityLogin
 import com.AdaInt.akademika.adapter.ShowKelasDosenAdapter
-import com.AdaInt.akademika.adapter.UserModelItem
 import com.AdaInt.akademika.helper.Sessions
 import com.AdaInt.akademika.model.GetKelasDosenItem
 import com.AdaInt.akademika.model.RequestGetKelasDosen
 import com.AdaInt.akademika.model.RequestTambahKelasDosen
 import com.AdaInt.akademika.model.editKelasDosen
 import com.AdaInt.akademika.network.*
-import com.AdaInt.akademika.util.tampilToast
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_kelas_ds.*
-import kotlinx.android.synthetic.main.item_kelas_dosen.*
 import org.jetbrains.annotations.Nullable
 import retrofit2.Call
 import retrofit2.Callback
@@ -142,22 +136,32 @@ class KelasFragmentDs : Fragment(){
 
             var kondisi = githubUser.kondisi
             if(kondisi == "edit"){
-            editKelas(githubUser.id.toString(),githubUser.id_dosen.toString() )
+            editKelas(githubUser.id.toString(),githubUser.id_dosen.toString(), githubUser.kelas.toString() )
             }
             if(kondisi == "hapus"){
                 KelasDeleted(githubUser.id.toString().toInt())
+            }
+            if(kondisi == "pindah"){
+                val intent = Intent(this.context, TambahTugas::class.java)
+                val bundle = Bundle()
+                bundle.putString("id_kelas" , githubUser.id.toString())
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
         }
     }
 
 
-    private fun editKelas(id : String, id_dosen : String){
+    private fun editKelas(id : String, id_dosen : String, namKelas : String){
         //ini kolom
         val inflter = LayoutInflater.from(context)
         val v = inflter.inflate(R.layout.input_kelas_dosen_tost, null)
         val addDialog = AlertDialog.Builder(context)
 
-        val namekelas = v.findViewById<EditText>(R.id.txtNamaKelas)
+        var namekelas = v.findViewById<EditText>(R.id.txtNamaKelas)
+
+        namekelas?.setText(namKelas)
+
         addDialog.setView(v)
         addDialog.setPositiveButton("Ok"){
                 dialog,_->

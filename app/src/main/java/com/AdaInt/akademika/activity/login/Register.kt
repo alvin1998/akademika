@@ -54,6 +54,7 @@ class Register : AppCompatActivity() {
                 userReg.email = email
                 userReg.password = pws
                 userReg.level = lvl
+                userReg.id_biodata = 1
 
                 val httpClient = httpClient()
                 val apiRequest = inputData<CreateData>(httpClient)

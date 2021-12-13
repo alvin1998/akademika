@@ -14,5 +14,8 @@ data class RequestUser(
     var email: String? = null,
 
     @field:SerializedName("username")
-    var username: String? = null
+    var username: String? = null,
+
+    @field:SerializedName("id_biodata")
+    var id_biodata: Int? = null
 )

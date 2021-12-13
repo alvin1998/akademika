@@ -3,7 +3,7 @@
     >
     <item
         android:id="@+id/tugastxt"
-        android:title="Tambah Tugas"
+        android:title="Tambah Materi"
         android:icon="@drawable/ic_library_add"/>
     <item
         android:id="@+id/ediText"

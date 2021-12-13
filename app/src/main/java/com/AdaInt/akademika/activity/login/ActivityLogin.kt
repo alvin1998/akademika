@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.AdaInt.akademika.R
 import com.AdaInt.akademika.activity.dosen.MainActivityFragment
 import com.AdaInt.akademika.activity.mahasiswa.MainActivityFragmenMhs
@@ -24,7 +25,7 @@ class ActivityLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        Log.i("test","as")
         btnRegister.setOnClickListener {Register()}
         btnLogin.setOnClickListener { CekLogin() }
 
@@ -60,7 +61,8 @@ class ActivityLogin : AppCompatActivity() {
                     pindah(
                         response.body()!!.username.toString(),
                         response.body()!!.id.toString(),
-                        response.body()!!.level.toString()
+                        response.body()!!.level.toString(),
+                        response.body()!!.id_biodata.toString().toInt()
                     )
 
                 }
@@ -83,22 +85,48 @@ class ActivityLogin : AppCompatActivity() {
         }
 
     }
-    private fun pindah(username : String, id: String, level: String){
+    private fun pindah(username : String, id: String, level: String, id_biodata: Int){
 
-        session = Sessions(this)
-        session.createSession("is_login", "masuk")
-        session.createSession("nama_user", username)
-        session.createSession("level_user", level)
-        session.createSession("id_user", id)
-        Log.i("coba", level)
+
+
         if(level.equals("Dosen")){
-            val intent = Intent(this, MainActivityFragment::class.java)
-            startActivity(intent)
-            Log.i("coba", "masuk dosen")
+
+            if(!id_biodata.equals(1)){
+                session = Sessions(this)
+                session.createSession("is_login", "masuk")
+                session.createSession("nama_user", username)
+                session.createSession("level_user", level)
+                session.createSession("id_user", id)
+                val intent = Intent(this, MainActivityFragment::class.java)
+                startActivity(intent)
+            }else{
+                session = Sessions(this)
+                session.createSession("id_user", id)
+                session.createSession("biodata", "tidak_ada")
+                session.createSession("level_user", level)
+                val intent = Intent(this, Biodata::class.java)
+                startActivity(intent)
+            }
+
+
+
         }else{
-            val intent = Intent(this, MainActivityFragmenMhs::class.java)
-            startActivity(intent)
-            Log.i("coba", "masuk mhs")
+            if(!id_biodata.equals(1)){
+                session = Sessions(this)
+                session.createSession("is_login", "masuk")
+                session.createSession("nama_user", username)
+                session.createSession("level_user", level)
+                session.createSession("id_user", id)
+                val intent = Intent(this, MainActivityFragmenMhs::class.java)
+                startActivity(intent)
+            }else{
+                session = Sessions(this)
+                session.createSession("id_user", id)
+                session.createSession("biodata", "tidak_ada")
+                session.createSession("level_user", level)
+                val intent = Intent(this, Biodata::class.java)
+                startActivity(intent)
+            }
         }
 
 
