@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.AdaInt.akademika.R
 import com.AdaInt.akademika.activity.dosen.MainActivityFragment
 import com.AdaInt.akademika.activity.mahasiswa.MainActivityFragmenMhs
@@ -25,7 +24,7 @@ class ActivityLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        Log.i("test","as")
+
         btnRegister.setOnClickListener {Register()}
         btnLogin.setOnClickListener { CekLogin() }
 
