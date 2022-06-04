@@ -24,7 +24,6 @@ class ActivityLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         btnRegister.setOnClickListener {Register()}
         btnLogin.setOnClickListener { CekLogin() }
 
@@ -54,8 +53,6 @@ class ActivityLogin : AppCompatActivity() {
                     call: Call<CekLoginRespon>,
                     response: Response<CekLoginRespon>
                 ) {
-//                    Log.i("coba",response.body()!!.username.toString())
-//                    Log.i("coba",response.body()!!.email.toString())
 
                     pindah(
                         response.body()!!.username.toString(),

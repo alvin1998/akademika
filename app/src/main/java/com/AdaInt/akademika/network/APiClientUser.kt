@@ -23,7 +23,18 @@ interface CekLoginD {
     @POST("api/cekLogin")
     fun cekData(@Body req: RequestCekLogin): Call<CekLoginRespon>
 }
+interface MBiodata {
 
+    @POST("api/biodata/tambah")
+    fun SendBiodata(@Body req: SendBiodataItem): Call<List<ResponseModelBiodataItem>>
+
+    @POST("api/biodata/ambil")
+    fun SendShowBiodata(@Body req: SendBiodataEdit): Call<ResponseModelBiodataItem>
+
+    @PUT("api/biodata/edit/{id}")
+    fun SendEditBiodata(@Path("id") id: Int, @Body req: EditBiodata): Call<ResponseModelBiodataItem>
+
+}
 interface GetKelasDosen {
     @POST("api/kelas/dosen")
     fun getKelasDs(@Body req: RequestGetKelasDosen): Call<List<GetKelasDosenItem>>
@@ -51,12 +62,7 @@ interface MateriDs {
     fun editKelas(@Path("id") id: Int, @Body req: SendMateriDosenEdit): Call<List<GetMateriDosenItem>>
 
 }
-interface MBiodata {
 
-    @POST("api/biodata/tambah")
-    fun SendBiodata(@Body req: SendBiodataItem): Call<List<ResponseModelBiodataItem>>
-
-}
 interface GetKelasMhsMo {
     @POST("api/mahasiswa/kelas")
     fun GetKelasM(@Body req: SendIdMhs): Call<List<GetKelasMhsItem>>

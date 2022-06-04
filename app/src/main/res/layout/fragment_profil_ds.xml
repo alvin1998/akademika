@@ -5,23 +5,142 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.dosen.ProfilFragmentDs"
-    android:orientation="vertical">
+    >
 
 
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:id="@+id/txtExitDs"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/layar1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout" />
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Coming Soon" />
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10ssp">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:text="Nama : " />
+
+            <EditText
+                android:id="@+id/txtNamaEditDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:hint="nama"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:text="Username : " />
+
+            <EditText
+                android:id="@+id/txtUsernameEditDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:hint="username"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:text="Email : " />
+
+            <EditText
+                android:id="@+id/txtemailEditDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:hint="email"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:text="Nomer : " />
+
+            <EditText
+                android:id="@+id/txtnomerEditDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:hint="081123123"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10ssp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:text="Alamat : " />
+
+            <EditText
+                android:id="@+id/txtalamatEditDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:hint="Malang"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layar1"
+        android:layout_marginTop="-17dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSimpanEditDs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="2"
+            android:text="Simpan" />
+
+        <Button
+            android:id="@+id/txtExitDs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="2"
+            android:text="Logout" />
+    </LinearLayout>
 
 </RelativeLayout>

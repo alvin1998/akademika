@@ -2,13 +2,13 @@ package com.AdaInt.akademika.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseModelBiodata(
+data class ResponseShowBiodataEdit(
 
-	@field:SerializedName("ResponseModelBiodata")
-	val responseModelBiodata: List<ResponseModelBiodataItem?>? = null
+	@field:SerializedName("ResponseShowBiodataEdit")
+	val responseShowBiodataEdit: List<ResponseShowBiodataEditItem?>? = null
 )
 
-data class ResponseModelBiodataItem(
+data class ResponseShowBiodataEditItem(
 
 	@field:SerializedName("password")
 	val password: String? = null,
@@ -45,27 +45,5 @@ data class ResponseModelBiodataItem(
 
 	@field:SerializedName("username")
 	val username: String? = null
-)
-data class SendBiodataEdit(
-
-	@field:SerializedName("id")
-	var id: Int? = null
-)
-data class EditBiodata(
-
-	@field:SerializedName("nama")
-	var nama: String? = null,
-
-	@field:SerializedName("nomer")
-	var nomer: String? = null,
-
-	@field:SerializedName("alamat")
-	var alamat: String? = null,
-
-	@field:SerializedName("username")
-	var username: String? = null,
-
-	@field:SerializedName("email")
-	var email: String? = null,
 )
 

@@ -19,7 +19,7 @@ fun httpClient(): OkHttpClient {
 inline fun <reified T> apiRequest(okHttpClient: OkHttpClient): T {
     val gson = GsonBuilder().create()
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.133.187:8000/")
+        .baseUrl("http://192.168.248.187:8000/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
@@ -28,7 +28,7 @@ inline fun <reified T> apiRequest(okHttpClient: OkHttpClient): T {
 inline fun <reified T> inputData(okHttpClient: OkHttpClient): T {
     val gson = GsonBuilder().create()
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.133.187:8000/")
+        .baseUrl("http://192.168.248.187:8000/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
@@ -37,7 +37,7 @@ inline fun <reified T> inputData(okHttpClient: OkHttpClient): T {
 inline fun <reified T> cekLogin(okHttpClient: OkHttpClient): T {
     val gson = GsonBuilder().create()
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.133.187:8000/")
+        .baseUrl("http://192.168.248.187:8000/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
